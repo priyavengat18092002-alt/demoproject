@@ -6,22 +6,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.practice.service.EmailService;
 
+import jakarta.mail.MessagingException;
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequestMapping("/email")
+@RequiredArgsConstructor
 public class MailController {
 
     private final EmailService emailService;
 
-    public MailController(EmailService emailService) {
-        this.emailService = emailService;
-    }
-
     @GetMapping("/send-test")
-    public String sendTestEmail() {
-        emailService.sendEmail(
+    public String sendTestEmail() throws MessagingException {
+        emailService.sendTemplateEmail(
             "priyavengat18092002@gmail.com",
             "Regarding Onboarding",
-            "Congratulations! , This message is from  Hemas Enterprises regarding your onboarding."
+            "Priya",
+            "25/09/2025"
         );
         return "Email sent successfully!";
     }
