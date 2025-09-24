@@ -40,13 +40,12 @@ public class PracticeServiceImpl implements PracticeService {
                     existing.setEmpid(entity.getEmpid());
                     existing.setName(entity.getName());
                     existing.setAge(entity.getAge());
-                    // no email field in entity, so nothing else to set
+                   
                     return practiceRepository.save(existing);
                 })
-                .orElse(null); // returns null if user not found
+                .orElse(null); 
     }
 
-    // ✅ Delete user by ID
     @Override
     public void deleteUser(String id) {
         practiceRepository.deleteById(id);

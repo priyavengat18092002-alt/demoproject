@@ -10,17 +10,12 @@ public class GenericResponse<T> {
     private T data;
     private String message;
 
-    // ✅ Success response
     public static <T> GenericResponse<T> success(T data, String message) {
         return new GenericResponse<>(true, data, message);
     }
-
-    // ✅ Error response
     public static <T> GenericResponse<T> error(T data, String message) {
         return new GenericResponse<>(false, data, message);
     }
-
-    // ✅ Overload if you want error with only message
     public static <T> GenericResponse<T> error(String message) {
         return new GenericResponse<>(false, null, message);
     }
