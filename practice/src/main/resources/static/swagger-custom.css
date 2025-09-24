@@ -1,0 +1,5 @@
+/* Replace Swagger UI logo */
+.topbar-wrapper img {
+    content: url("/images/imagelogo.png");
+    height: 40px; /* adjust as needed */
+}
